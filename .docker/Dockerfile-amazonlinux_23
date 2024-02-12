@@ -3,4 +3,7 @@ FROM amazonlinux:2023
 RUN yum update -y && \
     yum install -y ruby libjpeg-turbo libpng libXrender fontconfig libXext openssl
 
+RUN ln -s lib64/libssl.so.3 lib64/libssl.so.1.1 && \
+    ln -s lib64/libcrypto.so.3 lib64/libcrypto.so.1.1
+
 CMD /root/wkhtmltopdf_binary_gem/bin/wkhtmltopdf --version
