@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  debian_9:
-    build:
-      context: .
-      dockerfile: .docker/Dockerfile-debian_9_arm
-    volumes:
-      - .:/root/wkhtmltopdf_binary_gem
-
   debian_10:
     build:
       context: .
