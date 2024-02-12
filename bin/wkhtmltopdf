@@ -25,7 +25,7 @@ suffix = case RbConfig::CONFIG['host_os']
          when /linux/
            os = `. /etc/os-release 2> /dev/null && echo ${ID}_${VERSION_ID}`.strip
 
-           os = 'ubuntu_18.04' if os.start_with?('ubuntu_18.') || os.start_with?('ubuntu_19.') || os.start_with?('linuxmint_19.')
+           os = 'ubuntu_18.04' if os.start_with?('ubuntu_18.') || os.start_with?('linuxmint_19.')
 
            os = 'ubuntu_20.04' if os.start_with?('ubuntu_20.') || os.start_with?('linuxmint_20.')
 
@@ -35,11 +35,11 @@ suffix = case RbConfig::CONFIG['host_os']
 
            os = 'centos_8' if os.start_with?('amzn_20') || os.start_with?('rhel_8.')
 
-           os = 'debian_10' if !os_based_on_debian_9 && os.start_with?('debian_10')
+           os = 'debian_10' if os.start_with?('debian_10')
 
-           os = 'debian_11' if !os_based_on_debian_9 && os.start_with?('debian_11')
+           os = 'debian_11' if os.start_with?('debian_11')
 
-           os = 'debian_12' if !os_based_on_debian_9 && os.start_with?('debian_12')
+           os = 'debian_12' if os.start_with?('debian_12')
 
            os = 'archlinux' if os.start_with?('arch_') || os.start_with?('manjaro_')
 

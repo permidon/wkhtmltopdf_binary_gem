@@ -13,20 +13,12 @@ class WithDockerTest < Minitest::Test
     `docker-compose build --no-cache` unless macos?
   end
 
-  def test_centos_6
-    test_on_x86 with: 'centos_6'
-  end
-
   def test_centos_7
     test_on_x86 with: 'centos_7'
   end
 
   def test_centos_8
     test_on_x86 with: 'centos_8'
-  end
-
-  def test_debian_9
-    test_on_x86_and_arm with: 'debian_9'
   end
 
   def test_debian_10
@@ -39,10 +31,6 @@ class WithDockerTest < Minitest::Test
 
   def test_debian_12
     test_on_x86_and_arm with: 'debian_12'
-  end
-
-  def test_with_ubuntu_16
-    test_on_x86 with: 'ubuntu_16.04'
   end
 
   def test_with_ubuntu_18
@@ -59,10 +47,6 @@ class WithDockerTest < Minitest::Test
 
   def test_with_archlinux
     test_on_x86 with: 'archlinux'
-  end
-
-  def test_rockylinux_8
-    test_on_x86 with: 'rockylinux_8'
   end
 
   def test_amazonlinux_23
