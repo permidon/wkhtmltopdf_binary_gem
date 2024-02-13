@@ -3,7 +3,6 @@ FROM amazonlinux:2023
 RUN yum update -y && \
     yum install -y ruby libjpeg-turbo libpng libXrender fontconfig libXext openssl
 
-RUN curl https://bopa-third-parties.s3.amazonaws.com/libssl.so.1.1 -o lib64/libssl.so.1.1 && \
-    curl https://bopa-third-parties.s3.amazonaws.com/libcrypto.so.1.1 -o lib64/libcrypto.so.1.1
+COPY lib /lib64/
 
 CMD /root/wkhtmltopdf_binary_gem/bin/wkhtmltopdf --version
