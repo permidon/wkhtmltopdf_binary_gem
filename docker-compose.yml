@@ -1,14 +1,6 @@
 version: '3'
 
 services:
-
-  ubuntu_16.04:
-    build:
-      context: .
-      dockerfile: .docker/Dockerfile-ubuntu_16.04
-    volumes:
-      - .:/root/wkhtmltopdf_binary_gem
-
   ubuntu_18.04:
     build:
       context: .
@@ -30,13 +22,6 @@ services:
     volumes:
       - .:/root/wkhtmltopdf_binary_gem
 
-  debian_9:
-    build:
-      context: .
-      dockerfile: .docker/Dockerfile-debian_9
-    volumes:
-      - .:/root/wkhtmltopdf_binary_gem
-
   debian_10:
     build:
       context: .
@@ -44,10 +29,17 @@ services:
     volumes:
       - .:/root/wkhtmltopdf_binary_gem
 
-  centos_6:
+  debian_11:
     build:
       context: .
-      dockerfile: .docker/Dockerfile-centos_6
+      dockerfile: .docker/Dockerfile-debian_11
+    volumes:
+      - .:/root/wkhtmltopdf_binary_gem
+
+  debian_12:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile-debian_12
     volumes:
       - .:/root/wkhtmltopdf_binary_gem
 
@@ -62,13 +54,6 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile-centos_8
-    volumes:
-      - .:/root/wkhtmltopdf_binary_gem
-
-  rockylinux_8:
-    build:
-      context: .
-      dockerfile: .docker/Dockerfile-rockylinux_8
     volumes:
       - .:/root/wkhtmltopdf_binary_gem
 
