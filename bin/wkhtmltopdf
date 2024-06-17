@@ -24,28 +24,9 @@ end
 suffix = case RbConfig::CONFIG['host_os']
          when /linux/
            os = `. /etc/os-release 2> /dev/null && echo ${ID}_${VERSION_ID}`.strip
-
-           os = 'ubuntu_18.04' if os.start_with?('ubuntu_18.') || os.start_with?('linuxmint_19.')
-
-           os = 'ubuntu_20.04' if os.start_with?('ubuntu_20.') || os.start_with?('linuxmint_20.')
-
-           os = 'ubuntu_22.04' if os.start_with?('ubuntu_22.') || os.start_with?('linuxmint_21.')
-
-           os = 'centos_7' if (os.start_with?('amzn_2') && !os.start_with?('amzn_20')) || os.start_with?('rhel_7.')
-
            os = 'centos_8' if os.start_with?('amzn_20') || os.start_with?('rhel_8.')
-
-           os = 'debian_10' if os.start_with?('debian_10')
-
-           os = 'debian_11' if os.start_with?('debian_11')
-
            os = 'debian_12' if os.start_with?('debian_12')
-
-           os = 'archlinux' if os.start_with?('arch_') || os.start_with?('manjaro_')
-
            "#{os}_#{architecture}"
-         when /darwin/
-           'macos_cocoa'
          else
            'unknown'
          end
@@ -61,8 +42,7 @@ if File.exist?("#{binary}.gz") && !File.exist?(binary)
 end
 
 unless File.exist? binary
-  raise 'Invalid platform, must be running on Ubuntu 20.04/22.04, CentOS 7/8, ' \
-        'Debian 10/11/12, Debian 10/11/12 arm64, Archlinux amd64, or Intel-based Cocoa macOS ' \
+  raise 'Invalid platform, must be running on CentOS 8 or Debian 12' \
         "(missing binary: #{binary})."
 end
 

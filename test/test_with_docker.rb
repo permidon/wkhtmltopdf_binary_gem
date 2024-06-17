@@ -13,48 +13,16 @@ class WithDockerTest < Minitest::Test
     `docker-compose build --no-cache` unless macos?
   end
 
-  def test_centos_7
-    test_on_x86 with: 'centos_7'
-  end
-
   def test_centos_8
     test_on_x86 with: 'centos_8'
-  end
-
-  def test_debian_10
-    test_on_x86_and_arm with: 'debian_10'
-  end
-
-  def test_debian_11
-    test_on_x86_and_arm with: 'debian_11'
   end
 
   def test_debian_12
     test_on_x86_and_arm with: 'debian_12'
   end
 
-  def test_with_ubuntu_18
-    test_on_x86 with: 'ubuntu_18.04'
-  end
-
-  def test_with_ubuntu_20
-    test_on_x86 with: 'ubuntu_20.04'
-  end
-
-  def test_with_ubuntu_22
-    test_on_x86 with: 'ubuntu_22.04'
-  end
-
-  def test_with_archlinux
-    test_on_x86 with: 'archlinux'
-  end
-
   def test_amazonlinux_23
     test_on_x86 with: 'amazonlinux_23'
-  end
-
-  def test_with_macos
-    assert_equal(`bin/wkhtmltopdf --version`.strip, 'wkhtmltopdf 0.12.6 (with patched qt)') if macos?
   end
 
   private
